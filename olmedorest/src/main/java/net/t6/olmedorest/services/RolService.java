@@ -2,8 +2,8 @@
 package net.t6.olmedorest.services;
 
 import net.t6.olmedorest.repositories.RolRepository;
-import net.t6.olmedorest.RecordNotFoundException;
 import net.t6.olmedorest.entities.Rol;
+import net.t6.olmedorest.exceptions.RecordNotFoundException;
 
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;

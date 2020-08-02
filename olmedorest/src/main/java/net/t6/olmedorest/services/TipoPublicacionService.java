@@ -3,9 +3,9 @@ package net.t6.olmedorest.services;
 
 import net.t6.olmedorest.repositories.PublicacionRepository;
 import net.t6.olmedorest.repositories.TipoPublicacionRepository;
-import net.t6.olmedorest.RecordNotFoundException;
 import net.t6.olmedorest.entities.Publicacion;
 import net.t6.olmedorest.entities.TipoPublicacion;
+import net.t6.olmedorest.exceptions.RecordNotFoundException;
 
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;

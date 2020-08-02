@@ -4,10 +4,10 @@ package net.t6.olmedorest.services;
 import net.t6.olmedorest.repositories.ServicioRepository;
 import net.t6.olmedorest.repositories.UsuarioRepository;
 import net.t6.olmedorest.repositories.UsuarioServicioRepository;
-import net.t6.olmedorest.RecordNotFoundException;
 import net.t6.olmedorest.entities.Servicio;
 import net.t6.olmedorest.entities.Usuario;
 import net.t6.olmedorest.entities.UsuarioServicio;
+import net.t6.olmedorest.exceptions.RecordNotFoundException;
 
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;

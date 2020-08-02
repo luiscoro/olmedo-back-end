@@ -1,4 +1,4 @@
-package net.t6.olmedorest.img;
+package net.t6.olmedorest.exceptions;
 
 public class FileStorageException extends RuntimeException {
 

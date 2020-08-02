@@ -3,9 +3,9 @@ package net.t6.olmedorest.services;
 
 import net.t6.olmedorest.repositories.ServicioRepository;
 import net.t6.olmedorest.repositories.TipoServicioRepository;
-import net.t6.olmedorest.RecordNotFoundException;
 import net.t6.olmedorest.entities.Servicio;
 import net.t6.olmedorest.entities.TipoServicio;
+import net.t6.olmedorest.exceptions.RecordNotFoundException;
 
 import org.springframework.stereotype.Service;
 

@@ -1,9 +1,9 @@
 
 package net.t6.olmedorest.services;
 
-import net.t6.olmedorest.RecordNotFoundException;
 import net.t6.olmedorest.entities.Localidad;
 import net.t6.olmedorest.entities.Usuario;
+import net.t6.olmedorest.exceptions.RecordNotFoundException;
 import net.t6.olmedorest.repositories.LocalidadRepository;
 import net.t6.olmedorest.repositories.UsuarioRepository;
 

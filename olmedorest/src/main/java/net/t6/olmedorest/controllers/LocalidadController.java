@@ -1,8 +1,8 @@
 
 package net.t6.olmedorest.controllers;
 
-import net.t6.olmedorest.RecordNotFoundException;
 import net.t6.olmedorest.entities.Localidad;
+import net.t6.olmedorest.exceptions.RecordNotFoundException;
 import net.t6.olmedorest.services.LocalidadService;
 
 import org.springframework.web.bind.annotation.RestController;

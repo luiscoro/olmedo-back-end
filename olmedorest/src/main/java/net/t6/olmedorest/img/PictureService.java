@@ -10,6 +10,8 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.multipart.MultipartFile;
 
+import net.t6.olmedorest.exceptions.FileStorageException;
+
 import org.springframework.stereotype.Service;
 
 @Service

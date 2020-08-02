@@ -2,8 +2,8 @@
 package net.t6.olmedorest.controllers;
 
 import net.t6.olmedorest.services.ServicioService;
-import net.t6.olmedorest.RecordNotFoundException;
 import net.t6.olmedorest.entities.Servicio;
+import net.t6.olmedorest.exceptions.RecordNotFoundException;
 import net.t6.olmedorest.img.PictureService;
 
 import org.springframework.web.bind.annotation.RestController;

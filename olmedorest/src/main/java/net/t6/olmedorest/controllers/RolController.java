@@ -2,8 +2,8 @@
 package net.t6.olmedorest.controllers;
 
 import net.t6.olmedorest.services.RolService;
-import net.t6.olmedorest.RecordNotFoundException;
 import net.t6.olmedorest.entities.Rol;
+import net.t6.olmedorest.exceptions.RecordNotFoundException;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;

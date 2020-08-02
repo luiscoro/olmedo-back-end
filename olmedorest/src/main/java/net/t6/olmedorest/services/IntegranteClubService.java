@@ -1,8 +1,8 @@
 
 package net.t6.olmedorest.services;
 
-import net.t6.olmedorest.RecordNotFoundException;
 import net.t6.olmedorest.entities.IntegranteClub;
+import net.t6.olmedorest.exceptions.RecordNotFoundException;
 import net.t6.olmedorest.repositories.IntegranteClubRepository;
 
 import org.springframework.stereotype.Service;
