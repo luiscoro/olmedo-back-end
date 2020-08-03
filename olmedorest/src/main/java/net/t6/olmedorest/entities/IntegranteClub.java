@@ -38,10 +38,9 @@ public class IntegranteClub {
 	@Column(name="funcion_integrante")
 	private String funcion;
 	
-	@Type(type = "uuid-char")
 	@Column(name="foto_integrante")
+	@Type(type = "uuid-char")
 	private UUID foto;
-	
 
 	public Long getId() {
 		return id;

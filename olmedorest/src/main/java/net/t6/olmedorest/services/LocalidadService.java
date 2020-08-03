@@ -47,7 +47,7 @@ public class LocalidadService {
 		Iterator<Usuario> itr = localidad.getUsuarios().iterator(); 
 		while(itr.hasNext()){ 
 			Usuario u = (Usuario)itr.next();
-			repou.save( new Usuario(u.getNombreUsuario(),u.getCorreo(),u.getContrasenia(),
+			repou.save( new Usuario(u.getNombreUsuario(),u.getCorreo(),u.getContrasenia(),u.isHabilitado(),
 					u.getNombreCompleto(),u.getSexo(),u.getFechaNacimiento(),
 					u.getTelefono(),u.getDireccion(),u.getPuntajeBeneficio(),
 					u.getFechaCreacion(), localidad));
@@ -64,7 +64,7 @@ public class LocalidadService {
 			Iterator<Usuario> itr = localidad.getUsuarios().iterator(); 
 			while(itr.hasNext()){ 
 				Usuario u = (Usuario)itr.next();
-				repou.save( new Usuario(u.getNombreUsuario(),u.getCorreo(),u.getContrasenia(),
+				repou.save( new Usuario(u.getNombreUsuario(),u.getCorreo(),u.getContrasenia(),u.isHabilitado(),
 						u.getNombreCompleto(),u.getSexo(),u.getFechaNacimiento(),
 						u.getTelefono(),u.getDireccion(),u.getPuntajeBeneficio(),
 						u.getFechaCreacion(), localidad));

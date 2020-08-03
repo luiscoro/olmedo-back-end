@@ -23,6 +23,9 @@ public class Usuario {
 	@Column(name="contrasenia_usuario")
 	private String contrasenia;
 	
+	@Column(name="habilitado")
+	private boolean habilitado;
+	
 	@Column(name="nombre_completo")
 	private String nombreCompleto;
 	
@@ -59,13 +62,14 @@ public class Usuario {
 	
 	public Usuario() {}
 
-	public Usuario(String nombreUsuario, String correo, String contrasenia, String nombreCompleto, String sexo,
+	public Usuario(String nombreUsuario, String correo, String contrasenia, Boolean habilitado, String nombreCompleto, String sexo,
 			Date fechaNacimiento, String telefono, String direccion, Long puntajeBeneficio, Date fechaCreacion,
 			Localidad localidad) {
 		super();
 		this.nombreUsuario = nombreUsuario;
 		this.correo = correo;
 		this.contrasenia = contrasenia;
+		this.habilitado=habilitado;
 		this.nombreCompleto = nombreCompleto;
 		this.sexo = sexo;
 		this.fechaNacimiento = fechaNacimiento;
@@ -124,6 +128,14 @@ public class Usuario {
 		this.contrasenia = contrasenia;
 	}
 	
+	public boolean isHabilitado() {
+		return habilitado;
+	}
+
+	public void setHabilitado(boolean habilitado) {
+		this.habilitado = habilitado;
+	}
+
 	public String getNombreCompleto() {
 		return nombreCompleto;
 	}
