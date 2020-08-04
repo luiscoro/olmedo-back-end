@@ -72,7 +72,7 @@ public class IntegranteClubController {
 		return new ResponseEntity<List<IntegranteClub>>(list, new HttpHeaders(), HttpStatus.OK);
 	}				
 	
-	@GetMapping("/integranteclub/pic/{id}")
+	@GetMapping("/integranteClub/pic/{id}")
     public void getPhotoByID(@PathVariable("id") UUID id, HttpServletResponse response) throws IOException {    	
     	Path p = Paths.get(uploadDir + File.separator + id.toString()+".jpg");
     	System.out.println(p);
@@ -82,8 +82,8 @@ public class IntegranteClubController {
         is.close();
     }
 
-	@PostMapping("/integranteclub")
-	public ResponseEntity<IntegranteClub> createIntegranteClub(@RequestParam("integranteclub") String s, @RequestParam("img") LinkedList<MultipartFile> file) throws JsonMappingException, JsonProcessingException{
+	@PostMapping("/integranteClub")
+	public ResponseEntity<IntegranteClub> createIntegranteClub(@RequestParam("integranteClub") String s, @RequestParam("img") LinkedList<MultipartFile> file) throws JsonMappingException, JsonProcessingException{
 		
 		ObjectMapper om = new ObjectMapper();
 		IntegranteClub integranteClub=om.readValue(s, IntegranteClub[].class)[0];		
@@ -106,6 +106,7 @@ public class IntegranteClubController {
 		IntegranteClub integranteClub=om.readValue(s, IntegranteClub[].class)[0];		
 		
 		if (!file.isEmpty()) {
+			picService.deletePicture(integranteClub.getFoto());
 			UUID idPic = UUID.randomUUID();
 			picService.uploadPicture(file.get(0), idPic);
 			integranteClub.setFoto(idPic);
@@ -116,6 +117,8 @@ public class IntegranteClubController {
 
 	@DeleteMapping("/integranteClub/{id}")
 	public HttpStatus deleteIntegranteClubById(@PathVariable("id") Long id) throws RecordNotFoundException {
+		IntegranteClub integranteClub=service.findById(id);
+		picService.deletePicture(integranteClub.getFoto());
 		service.deleteIntegranteClubById(id);
 		return HttpStatus.OK;
 	}
