@@ -1,4 +1,4 @@
-package config;
+/*package config;
  
 import javax.sql.DataSource;
  
@@ -29,4 +29,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         .anyRequest().authenticated().and().formLogin().loginPage("/login").permitAll().and().logout()
         .permitAll();
   }
-}
+}*/
