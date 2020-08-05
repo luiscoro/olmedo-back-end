@@ -1,5 +1,5 @@
 package net.t6.olmedorest.entities;
-import java.util.Set;
+
 
 import javax.persistence.*;
 	
@@ -14,7 +14,7 @@ public class TipoPublicacion {
 	@Column(name="detalle_tipo_publicacion")
 	private String detalle;
 	
-	@OneToMany(mappedBy="tipoPublicacion", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+	/*@OneToMany(mappedBy="tipoPublicacion", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private Set<Publicacion> publicaciones;
 	
 
@@ -24,7 +24,7 @@ public class TipoPublicacion {
 
 	public void setPublicaciones(Set<Publicacion> publicaciones) {
 		this.publicaciones = publicaciones;
-	}
+	}*/
 
 	public Long getId() {
 		return id;

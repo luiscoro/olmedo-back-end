@@ -32,7 +32,22 @@ public class Publicacion {
 	@Column(name="foto_publicacion")
 	private UUID foto;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@Column(name="id_tipo_publicacion")
+	private int idTipoPublicacion;
+	
+	public int getidTipoPublicacion() {
+		return idTipoPublicacion;
+	}
+	
+	public void setidTipoPublicacion(int idTipoPublicacion) {
+		this.idTipoPublicacion = idTipoPublicacion;
+	}
+	
+	
+	
+	/* comentar para que valga */
+	
+	/* @ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="id_tipo_publicacion", nullable=false)
 	private TipoPublicacion tipoPublicacion;
 		
@@ -48,7 +63,7 @@ public class Publicacion {
 		this.foto = foto;
 		this.tipoPublicacion = tipoPublicacion;
 	}
-
+*/
 	public Long getId() {
 		return id;
 	}

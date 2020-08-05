@@ -42,8 +42,8 @@ public class TipoPublicacionController {
 	@PostMapping("/tipoPublicacion")
 	public ResponseEntity<TipoPublicacion> createTipoPublicacion(@RequestBody TipoPublicacion tipoPublicacion){
 		
-		if(service.existePorDetalle(tipoPublicacion.getDetalle()))
-			return new ResponseEntity<TipoPublicacion>(tipoPublicacion, new HttpHeaders(),HttpStatus.CONFLICT);
+	/*	if(service.existePorDetalle(tipoPublicacion.getDetalle()))
+			return new ResponseEntity<TipoPublicacion>(tipoPublicacion, new HttpHeaders(),HttpStatus.CONFLICT);*/
 		service.createTipoPublicacion(tipoPublicacion);
 		return new ResponseEntity<TipoPublicacion>(tipoPublicacion, new HttpHeaders(), HttpStatus.OK);
 	}
