@@ -30,10 +30,10 @@ public class IntegranteClub {
 	private String paisProcedencia;
 	
 	@Column(name="estatura_integrante")
-	private Double estatura;
+	private int estatura;
 	
 	@Column(name="peso_integrante")
-	private Double peso;
+	private int peso;
 	
 	@Column(name="funcion_integrante")
 	private String funcion;
@@ -90,22 +90,24 @@ public class IntegranteClub {
 		this.paisProcedencia = paisProcedencia;
 	}
 	
-	public Double getEstatura() {
+	
+	
+	public int getEstatura() {
 		return estatura;
 	}
-	
-	public void setEstatura(Double estatura) {
+
+	public void setEstatura(int estatura) {
 		this.estatura = estatura;
 	}
-	
-	public Double getPeso() {
+
+	public int getPeso() {
 		return peso;
 	}
-	
-	public void setPeso(Double peso) {
+
+	public void setPeso(int peso) {
 		this.peso = peso;
 	}
-	
+
 	public String getFuncion() {
 		return funcion;
 	}
