@@ -99,6 +99,8 @@ public class ServicioController {
 			servicio.setFoto(idPic);
 		}
 		
+		if(service.existePorNombre(servicio.getNombre()))
+			return new ResponseEntity<Servicio>(servicio, new HttpHeaders(),HttpStatus.CONFLICT);
 		service.createServicio(servicio);
 		return new ResponseEntity<Servicio>(servicio, new HttpHeaders(), HttpStatus.OK);
 	}
@@ -110,6 +112,7 @@ public class ServicioController {
 		Servicio servicio=om.readValue(s, Servicio[].class)[0];
 		
 		if (!file.isEmpty()) {
+			picService.deletePicture(servicio.getFoto());
 			UUID idPic = UUID.randomUUID();
 			picService.uploadPicture(file.get(0), idPic);
 			servicio.setFoto(idPic);
@@ -121,6 +124,8 @@ public class ServicioController {
 
 	@DeleteMapping("/servicio/{id}")
 	public HttpStatus deleteServicioById(@PathVariable("id") Long id) throws RecordNotFoundException {
+		Servicio servicio=service.findById(id);
+		picService.deletePicture(servicio.getFoto());
 		service.deleteServicioById(id);
 		return HttpStatus.OK;
 	}

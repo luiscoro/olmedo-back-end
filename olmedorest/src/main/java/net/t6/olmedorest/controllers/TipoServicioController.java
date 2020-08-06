@@ -38,8 +38,6 @@ public class TipoServicioController {
 		return new ResponseEntity<TipoServicio>(entity, new HttpHeaders(), HttpStatus.OK);
 	}
 
-
-
 	@PostMapping("/tipoServicio")
 	public ResponseEntity<TipoServicio> createTipoServicio(@RequestBody TipoServicio tipoServicio){
 		service.createTipoServicio(tipoServicio);

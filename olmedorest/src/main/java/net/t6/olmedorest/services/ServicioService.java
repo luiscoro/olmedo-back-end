@@ -5,14 +5,11 @@ import net.t6.olmedorest.repositories.ServicioRepository;
 import net.t6.olmedorest.repositories.UsuarioRepository;
 import net.t6.olmedorest.repositories.UsuarioServicioRepository;
 import net.t6.olmedorest.entities.Servicio;
-import net.t6.olmedorest.entities.Usuario;
-import net.t6.olmedorest.entities.UsuarioServicio;
 import net.t6.olmedorest.exceptions.RecordNotFoundException;
 
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -65,32 +62,32 @@ public class ServicioService {
 	}
 	
 	public Servicio createServicio(Servicio servicio){
-		repo.save(servicio);
+		return repo.save(servicio);
 		
-		Iterator<UsuarioServicio> itr1 = servicio.getUsuarioServicios().iterator(); 
+		/*Iterator<UsuarioServicio> itr1 = servicio.getUsuarioServicios().iterator(); 
 		while(itr1.hasNext()){ 
 			UsuarioServicio us = (UsuarioServicio)itr1.next();
 			repous.save(new UsuarioServicio(us.getFecha(),us.getArchivoSolicitud(),us.getNombrePromocion(),
 					us.getDetallePromocion(),repou.save(new Usuario()),servicio));
 		}	
         
-        return servicio;
+        return servicio;*/
 	}
 
 	public Servicio updateServicio(Servicio servicio) throws RecordNotFoundException {
 		Optional<Servicio> servicioTemp = repo.findById(servicio.getId());
 	
 		if(servicioTemp.isPresent()){
-			repo.save(servicio);
+			return repo.save(servicio);
 			
-			Iterator<UsuarioServicio> itr1 = servicio.getUsuarioServicios().iterator(); 
+			/*Iterator<UsuarioServicio> itr1 = servicio.getUsuarioServicios().iterator(); 
 			while(itr1.hasNext()){ 
 				UsuarioServicio us = (UsuarioServicio)itr1.next();
 				repous.save(new UsuarioServicio(us.getFecha(),us.getArchivoSolicitud(),us.getNombrePromocion(),
 						us.getDetallePromocion(),repou.save(new Usuario()),servicio));
 			}	
 	        
-	        return servicio;
+	        return servicio;*/
 		} else {
 			throw new RecordNotFoundException("Record does not exist for the given Id");
 		}
@@ -104,5 +101,9 @@ public class ServicioService {
 			throw new RecordNotFoundException("Record does not exist for the given Id");
 		}
 	}		
+	
+	public boolean existePorNombre(String nombre){
+        return repo.existsByNombre(nombre);
+    }
 
 }

@@ -15,8 +15,11 @@ public interface ServicioRepository extends JpaRepository<Servicio, Long> {
 
 	Optional <Servicio> findById(Long id);
 	
+	boolean existsByNombre(String nombre);
+	
 	@Transactional
 	void deleteById(Long id);
+	
 	
 	List<Servicio> findByNombreContaining(String nombre);
 	
