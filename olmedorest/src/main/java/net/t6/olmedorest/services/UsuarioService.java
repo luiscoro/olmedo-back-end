@@ -5,10 +5,12 @@ import net.t6.olmedorest.repositories.NotificacionRepository;
 import net.t6.olmedorest.repositories.ServicioRepository;
 import net.t6.olmedorest.repositories.UsuarioRepository;
 import net.t6.olmedorest.repositories.UsuarioServicioRepository;
+import net.t6.olmedorest.repositories.loginRepository;
 import net.t6.olmedorest.entities.Notificacion;
 import net.t6.olmedorest.entities.Servicio;
 import net.t6.olmedorest.entities.Usuario;
 import net.t6.olmedorest.entities.UsuarioServicio;
+import net.t6.olmedorest.entities.login;
 import net.t6.olmedorest.exceptions.RecordNotFoundException;
 
 import org.springframework.stereotype.Service;
@@ -32,6 +34,9 @@ public class UsuarioService {
 	
 	@Autowired
 	ServicioRepository repos;
+	
+	@Autowired
+	loginRepository repou1;
 	
 
 	public List<Usuario> getAll(){
@@ -61,19 +66,19 @@ public class UsuarioService {
 		}
 	}
 	
-	public List<Usuario> findByCorreoContaining(String correo){
-		List<Usuario> usuarioList = repo.findByCorreoContaining(correo);
+	public List<login> findByCorreoContaining(String correo){
+		List<login> usuarioList = repou1.findByCorreoContaining(correo);
 		if(usuarioList.size() > 0) {
 			return usuarioList;
 		} else {
-			return new ArrayList<Usuario>();
+			return new ArrayList<login>();
 		}
 	}
 	
 	public Usuario createUsuario(Usuario usuario){
 		
-        repo.save(usuario);
-        
+        return repo.save(usuario);
+        /*
 		Iterator<Notificacion> itr = usuario.getNotificaciones().iterator(); 
 		while(itr.hasNext()){ 
 			Notificacion n = (Notificacion)itr.next();
@@ -88,30 +93,28 @@ public class UsuarioService {
 					us.getDetallePromocion(),usuario,repos.save(new Servicio())));
 		}	
         
-        return usuario;
+        return usuario;*/
 	}
 
 	public Usuario updateUsuario(Usuario usuario) throws RecordNotFoundException {
 		Optional<Usuario> usuarioTemp = repo.findById(usuario.getId());
-	
+		
 		if(usuarioTemp.isPresent()){
-			repo.save(usuario);
-	        
+			return repo.save(usuario);
+	        /*
 			Iterator<Notificacion> itr = usuario.getNotificaciones().iterator(); 
 			while(itr.hasNext()){ 
 				Notificacion n = (Notificacion)itr.next();
 				repon.save( new Notificacion(n.getNombre(),n.getDetalle(),
 						n.getEstado(), usuario));
-			}		
-			
+			}					
 			Iterator<UsuarioServicio> itr1 = usuario.getUsuarioServicios().iterator(); 
 			while(itr1.hasNext()){ 
 				UsuarioServicio us = (UsuarioServicio)itr1.next();
 				repous.save( new UsuarioServicio(us.getFecha(),us.getArchivoSolicitud(),us.getNombrePromocion(),
 						us.getDetallePromocion(),usuario,repos.save(new Servicio())));
-			}	
-	        
-	        return usuario;
+			}		        
+	        return usuario; */
 		} else {
 			throw new RecordNotFoundException("Record does not exist for the given Id");
 		}

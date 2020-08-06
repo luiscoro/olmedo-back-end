@@ -42,9 +42,9 @@ public class LocalidadService {
 	}
 
 	public Localidad createLocalidad(Localidad localidad){
-		repo.save(localidad);
+		return repo.save(localidad);
 		
-		Iterator<Usuario> itr = localidad.getUsuarios().iterator(); 
+		/*Iterator<Usuario> itr = localidad.getUsuarios().iterator(); 
 		while(itr.hasNext()){ 
 			Usuario u = (Usuario)itr.next();
 			repou.save( new Usuario(u.getNombreUsuario(),u.getCorreo(),u.getContrasenia(),u.isHabilitado(),
@@ -52,15 +52,15 @@ public class LocalidadService {
 					u.getTelefono(),u.getDireccion(),u.getPuntajeBeneficio(),
 					u.getFechaCreacion(), localidad));
 		}		
-		return localidad;
-	}
+		return localidad; */
+	} 
 	
 	public Localidad updateLocalidad(Localidad localidad) throws RecordNotFoundException {
 		Optional<Localidad> localidadTemp = repo.findById(localidad.getId());
 	
 		if(localidadTemp.isPresent()){
-			repo.save(localidad);
-			
+			return repo.save(localidad);
+			/*
 			Iterator<Usuario> itr = localidad.getUsuarios().iterator(); 
 			while(itr.hasNext()){ 
 				Usuario u = (Usuario)itr.next();
@@ -68,9 +68,8 @@ public class LocalidadService {
 						u.getNombreCompleto(),u.getSexo(),u.getFechaNacimiento(),
 						u.getTelefono(),u.getDireccion(),u.getPuntajeBeneficio(),
 						u.getFechaCreacion(), localidad));
-			}	
-			
-			return localidad;
+			}		
+			return localidad;*/
 		} else {
 			throw new RecordNotFoundException("Record does not exist for the given Id");
 		}

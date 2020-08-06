@@ -23,8 +23,8 @@ public class Usuario {
 	@Column(name="contrasenia_usuario")
 	private String contrasenia;
 	
-	@Column(name="habilitado")
-	private boolean habilitado;
+	//@Column(name="habilitado")
+	//private Byte habilitado;
 	
 	@Column(name="nombre_completo")
 	private String nombreCompleto;
@@ -50,11 +50,14 @@ public class Usuario {
 	@Column(name="fecha_creacion")
 	private Date fechaCreacion;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="id_localidad", nullable=false)
-	private Localidad localidad;
+	//@ManyToOne(fetch = FetchType.LAZY)
+	@Column(name="id_localidad", nullable=false)
+	private int localidad;
 	
-	@OneToMany(mappedBy="usuario", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+	@Column(name="id_rol", nullable=false)
+	private int idRol;
+	
+	/*@OneToMany(mappedBy="usuario", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private Set<Notificacion> notificaciones;
 	
 	@OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
@@ -78,7 +81,7 @@ public class Usuario {
 		this.puntajeBeneficio = puntajeBeneficio;
 		this.fechaCreacion = fechaCreacion;
 		this.localidad = localidad;
-	}
+	} */ /*
 
 	public Set<UsuarioServicio> getUsuarioServicios() {
 		return usuarioServicios;
@@ -94,7 +97,7 @@ public class Usuario {
 
 	public void setNotificaciones(Set<Notificacion> notificaciones) {
 		this.notificaciones = notificaciones;
-	}
+	} */
 
 	public Long getId() {
 		return id;
@@ -104,11 +107,11 @@ public class Usuario {
 		this.id = id;
 	}
 	
-	public String getNombreUsuario() {
+	public String getNombre() {
 		return nombreUsuario;
 	}
 	
-	public void setNombreUsuario(String nombreUsuario) {
+	public void setNombre(String nombreUsuario) {
 		this.nombreUsuario = nombreUsuario;
 	}
 	
@@ -127,15 +130,15 @@ public class Usuario {
 	public void setContrasenia(String contrasenia) {
 		this.contrasenia = contrasenia;
 	}
-	
-	public boolean isHabilitado() {
+	/*
+	public Byte isHabilitado() {
 		return habilitado;
 	}
 
-	public void setHabilitado(boolean habilitado) {
+	public void setHabilitado(Byte habilitado) {
 		this.habilitado = habilitado;
 	}
-
+ */
 	public String getNombreCompleto() {
 		return nombreCompleto;
 	}
@@ -191,4 +194,22 @@ public class Usuario {
 	public void setFechaCreacion(Date fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
 	}
+	
+	public int getIdLocalidad() {
+		return localidad;
+	}
+	
+	public void setIdLocalidad(int localidad) {
+		this.localidad = localidad;
+	}
+	
+	public int getIdRol() {
+		return idRol;
+	}
+	
+	public void setIdRol(int idRol) {
+		this.idRol = idRol;
+	}
+
+
 }

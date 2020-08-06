@@ -57,23 +57,16 @@ public class TipoPublicacionService {
 
 	
 	public TipoPublicacion updateTipoPublicacion(TipoPublicacion tipoPublicacion) throws RecordNotFoundException {
-		Optional<TipoPublicacion> tipoPublicacionTemp = repo.findById(tipoPublicacion.getId());
-	
-		if(tipoPublicacionTemp.isPresent()){
-			
+		Optional<TipoPublicacion> tipoPublicacionTemp = repo.findById(tipoPublicacion.getId());	
+		
+		if(tipoPublicacionTemp.isPresent()){		
 			return repo.save(tipoPublicacion);
-			
-			
-			
 			/*
 			Iterator<Publicacion> itr = tipoPublicacion.getPublicaciones().iterator(); 
 			while(itr.hasNext()){ 
 				Publicacion p = (Publicacion)itr.next();
 				repop.save(new Publicacion(p.getNombre(),p.getDetalle(),p.getAutor(),p.getFecha(),
 						p.getFoto(), tipoPublicacion));}*/
-			
-			
-			
 		} else {
 			throw new RecordNotFoundException("Record does not exist for the given Id");
 		}
