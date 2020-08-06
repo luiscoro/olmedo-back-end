@@ -3,14 +3,12 @@ package net.t6.olmedorest.services;
 
 import net.t6.olmedorest.repositories.PublicacionRepository;
 import net.t6.olmedorest.repositories.TipoPublicacionRepository;
-import net.t6.olmedorest.entities.Publicacion;
 import net.t6.olmedorest.entities.TipoPublicacion;
 import net.t6.olmedorest.exceptions.RecordNotFoundException;
 
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -67,6 +65,7 @@ public class TipoPublicacionService {
 				Publicacion p = (Publicacion)itr.next();
 				repop.save(new Publicacion(p.getNombre(),p.getDetalle(),p.getAutor(),p.getFecha(),
 						p.getFoto(), tipoPublicacion));}*/
+
 		} else {
 			throw new RecordNotFoundException("Record does not exist for the given Id");
 		}

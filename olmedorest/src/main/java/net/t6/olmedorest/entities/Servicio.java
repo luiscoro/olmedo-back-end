@@ -2,7 +2,6 @@
 package net.t6.olmedorest.entities;
 import javax.persistence.*;
 
-import java.util.Set;
 import java.util.UUID;
 import org.hibernate.annotations.Type;
 	
@@ -33,7 +32,10 @@ public class Servicio {
 	@Column(name="descuento_servicio")
 	private Long descuento;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@Column(name="id_tipo_servicio")
+	private int idTipoServicio;
+	
+	/*@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="id_tipo_servicio", nullable=false)
 	private TipoServicio tipoServicio;
 	
@@ -42,8 +44,7 @@ public class Servicio {
 	
 	public Servicio() {}
 
-	public Servicio(String nombre, String detalle, UUID foto, String estado, Long valor, Long descuento,
-			TipoServicio tipoServicio) {
+	public Servicio(String nombre, String detalle, UUID foto, String estado, Long valor, Long descuento) {
 		super();
 		this.nombre = nombre;
 		this.detalle = detalle;
@@ -61,7 +62,7 @@ public class Servicio {
 
 	public void setUsuarioServicios(Set<UsuarioServicio> usuarioServicios) {
 		this.usuarioServicios = usuarioServicios;
-	}
+	}*/
 
 	public Long getId() {
 		return id;
@@ -117,6 +118,14 @@ public class Servicio {
 	
 	public void setDescuento(Long descuento) {
 		this.descuento = descuento;
+	}
+
+	public int getIdTipoServicio() {
+		return idTipoServicio;
+	}
+
+	public void setIdTipoServicio(int idTipoServicio) {
+		this.idTipoServicio = idTipoServicio;
 	}
 	
 }
