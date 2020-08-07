@@ -30,10 +30,10 @@ public class IntegranteClub {
 	private String paisProcedencia;
 	
 	@Column(name="estatura_integrante")
-	private int estatura;
+	private float estatura;
 	
 	@Column(name="peso_integrante")
-	private int peso;
+	private float peso;
 	
 	@Column(name="funcion_integrante")
 	private String funcion;
@@ -92,19 +92,19 @@ public class IntegranteClub {
 	
 	
 	
-	public int getEstatura() {
+	public float getEstatura() {
 		return estatura;
 	}
 
-	public void setEstatura(int estatura) {
+	public void setEstatura(float estatura) {
 		this.estatura = estatura;
 	}
 
-	public int getPeso() {
+	public float getPeso() {
 		return peso;
 	}
 
-	public void setPeso(int peso) {
+	public void setPeso(float peso) {
 		this.peso = peso;
 	}
 
