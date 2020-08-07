@@ -47,6 +47,12 @@ public class UsuarioController {
 		Usuario entity = service.findById(id);
 		return new ResponseEntity<Usuario>(entity, new HttpHeaders(), HttpStatus.OK);
 	}
+	
+	@GetMapping("/usuario/login/{correo}/{contrasenia}")
+	public ResponseEntity<List<login>> getUsuarioByEmailPass(@PathVariable("correo") String correo, @PathVariable("contrasenia") String contrasenia){
+		List<login> entity = service.findByCorreoAndContrasenia(correo, contrasenia);
+		return new ResponseEntity<List<login>>(entity, new HttpHeaders(), HttpStatus.OK);
+	}
 
 	@GetMapping("/usuario/findbynombreUsuario/{nombreUsuario}")
 	public ResponseEntity<List<Usuario>> getByNombreUsuario(@PathVariable("nombreUsuario") String nombreUsuario){
@@ -60,6 +66,7 @@ public class UsuarioController {
 		return new ResponseEntity<List<login>>(list, new HttpHeaders(), HttpStatus.OK);	
 	}			
 
+	
 	@PostMapping("/usuario")
 	public ResponseEntity<Usuario> createUsuario(@RequestParam("usuario") String s)throws JsonMappingException, JsonProcessingException{
 		ObjectMapper om = new ObjectMapper();

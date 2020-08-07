@@ -56,6 +56,15 @@ public class UsuarioService {
 			throw new RecordNotFoundException("Record does not exist for the given Id");
 		}
 	}
+	
+	public List<login> findByCorreoAndContrasenia(String correo, String contrasenia){
+		List<login> login = repou1.findByCorreoAndContrasenia(correo, contrasenia);
+		if(login.size() > 0) {
+			return login;
+		} else {
+			return new ArrayList<login>();
+		}
+	}
 
 	public List<Usuario> findByNombreUsuarioContaining(String nombreUsuario){
 		List<Usuario> usuarioList = repo.findByNombreUsuarioContaining(nombreUsuario);
@@ -133,11 +142,5 @@ public class UsuarioService {
         return repo.existsByNombreUsuario(nombreUsuario);       
     }
 	
-	public boolean existePorCorreo(String correo){
-        return repo.existsByCorreo(correo);       
-    }
 
-	public boolean existePorNombreCompleto(String nombreCompleto){
-        return repo.existsByNombreCompleto(nombreCompleto);       
-    }
 }

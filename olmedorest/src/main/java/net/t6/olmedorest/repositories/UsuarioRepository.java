@@ -19,7 +19,7 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 	
 	boolean existsByCorreo(String correo);
 	
-	boolean existsByNombreCompleto(String nombreCompleto);
+	//boolean existsByNombreCompleto(String nombreCompleto);
 	
 	@Transactional
 	void deleteById(Long id);

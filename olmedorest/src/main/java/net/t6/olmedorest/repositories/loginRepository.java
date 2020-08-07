@@ -7,13 +7,17 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import org.springframework.stereotype.Repository;
 
+import net.t6.olmedorest.entities.Usuario;
 import net.t6.olmedorest.entities.login;
 
 
 @Repository
-public interface loginRepository extends JpaRepository<login, String>{
+public interface loginRepository extends JpaRepository<login, Long>{
 
 	
-	List<login> findByCorreoContaining(String correo);
+	List<login> findByCorreoContaining(String correo);//, String contrasenia);
+	
+	List<login> findByCorreoAndContrasenia(String correo, String contrasenia);
+	
 	
 }

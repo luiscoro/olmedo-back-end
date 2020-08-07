@@ -13,7 +13,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
-@Table(name = "usuario")
+@Table(name = "`usuario`")
 public class login {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,16 +33,16 @@ public class login {
 		return id;
 	}
 	
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
 	public void setidRol(int idRol) {
 		this.idRol = idRol;
 	}
 	
 	public int getidRol() {
 		return idRol;
-	}
-	
-	public void setId(Long id) {
-		this.id = id;
 	}
 	
 	public String getContrasenia() {

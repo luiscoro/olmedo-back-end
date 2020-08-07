@@ -26,8 +26,8 @@ public class Usuario {
 	//@Column(name="habilitado")
 	//private Byte habilitado;
 	
-	@Column(name="nombre_completo")
-	private String nombreCompleto;
+	//@Column(name="nombre_completo")
+	//private String nombreCompleto;
 	
 	@Column(name="sexo_usuario")
 	private String sexo;
@@ -138,14 +138,14 @@ public class Usuario {
 	public void setHabilitado(Byte habilitado) {
 		this.habilitado = habilitado;
 	}
- */
+ 
 	public String getNombreCompleto() {
 		return nombreCompleto;
 	}
 	
 	public void setNombreCompleto(String nombreCompleto) {
 		this.nombreCompleto = nombreCompleto;
-	}
+	} */
 	
 	public String getSexo() {
 		return sexo;

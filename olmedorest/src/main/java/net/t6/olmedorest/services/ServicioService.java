@@ -19,8 +19,8 @@ public class ServicioService {
 	@Autowired
 	ServicioRepository repo;
 	
-	@Autowired
-	UsuarioRepository repou;
+	//@Autowired
+	//UsuarioRepository repou;
 	
 	@Autowired
 	UsuarioServicioRepository repous;

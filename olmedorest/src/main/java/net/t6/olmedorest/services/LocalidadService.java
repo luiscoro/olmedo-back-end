@@ -16,9 +16,6 @@ import java.util.Optional;
 
 @Service
 public class LocalidadService {
-
-	@Autowired
-	UsuarioRepository repou;
 	
 	@Autowired
 	LocalidadRepository repo;
