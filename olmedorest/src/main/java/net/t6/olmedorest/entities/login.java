@@ -26,6 +26,9 @@ public class login {
 	@Column(name="correo_usuario")
 	private String correo;
 	
+	@Column(name="puntaje_beneficio")
+	private int point;
+	
 	@Column(name="id_rol")
 	private int idRol;
 	
@@ -51,6 +54,14 @@ public class login {
 	
 	public void setContrasenia(String contrasenia) {
 		this.contrasenia = contrasenia;
+	}
+	
+	public int getPuntajeBeneficio() {
+		return point;
+	}
+	
+	public void setPuntajeBeneficio(int point) {
+		this.point = point;
 	}
 	
 	public String getCorreo() {
