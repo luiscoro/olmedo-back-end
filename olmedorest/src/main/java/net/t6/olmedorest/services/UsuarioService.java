@@ -142,5 +142,9 @@ public class UsuarioService {
         return repo.existsByNombreUsuario(nombreUsuario);       
     }
 	
+	public boolean existePorCorreo(String correo){
+        return repo.existsByCorreo(correo);       
+    }
+	
 
 }
