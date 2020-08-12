@@ -2,7 +2,6 @@
 package net.t6.olmedorest.controllers;
 
 import net.t6.olmedorest.services.UsuarioService;
-import net.t6.olmedorest.entities.Publicacion;
 import net.t6.olmedorest.entities.Usuario;
 import net.t6.olmedorest.entities.login;
 import net.t6.olmedorest.exceptions.RecordNotFoundException;
@@ -72,6 +71,10 @@ public class UsuarioController {
 		ObjectMapper om = new ObjectMapper();
 		Usuario usuario=om.readValue(s, Usuario[].class)[0];		
 		
+		if(service.existePorNombreUsuario(usuario.getNombre()))
+			return new ResponseEntity<Usuario>(usuario, new HttpHeaders(),HttpStatus.CONFLICT);
+		if(service.existePorCorreo(usuario.getCorreo()))
+			return new ResponseEntity<Usuario>(usuario, new HttpHeaders(),HttpStatus.CONFLICT);
 		service.createUsuario(usuario);
 		return new ResponseEntity<Usuario>(usuario, new HttpHeaders(), HttpStatus.OK);
 	}
