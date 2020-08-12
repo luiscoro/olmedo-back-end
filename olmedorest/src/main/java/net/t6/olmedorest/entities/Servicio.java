@@ -65,7 +65,7 @@ public class Servicio {
 
 	public void setUsuarioServicios(Set<UsuarioServicio> usuarioServicios) {
 		this.usuarioServicios = usuarioServicios;
-	}*/
+	} */
 
 	public Long getId() {
 		return id;
