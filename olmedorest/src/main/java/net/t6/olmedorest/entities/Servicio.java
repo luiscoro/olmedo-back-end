@@ -32,6 +32,9 @@ public class Servicio {
 	@Column(name="descuento_servicio")
 	private Long descuento;
 	
+	@Column(name="puntos_canjeo")
+	private String canjeo;
+	
 	@Column(name="id_tipo_servicio")
 	private int idTipoServicio;
 	
@@ -119,6 +122,15 @@ public class Servicio {
 	public void setDescuento(Long descuento) {
 		this.descuento = descuento;
 	}
+	
+	public String getCanjeo() {
+		return canjeo;
+	}
+	
+	public void setCanjeo(String canjeo) {
+		this.canjeo = canjeo;
+	}
+
 
 	public int getIdTipoServicio() {
 		return idTipoServicio;
