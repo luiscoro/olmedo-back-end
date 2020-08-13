@@ -37,26 +37,15 @@ public class Pago {
 	private Time hora;
 	
 	@Type(type = "uuid-char")
-	@Column(name="foto_publicacion")
+	@Column(name="foto_pago")
 	private UUID foto;
 	
 	@Column(name="estado_pago")
 	private String estado;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="id_usuario_servicio", nullable=false)
-	private UsuarioServicio usuarioServicio;
+	@Column(name="id_usuario_servicio")
+	private Long idUS;
 	
-	public Pago() {}
-
-	public Pago(Date fecha, Time hora,UUID foto, String estado, UsuarioServicio usuarioServicio) {
-		super();
-		this.fecha = fecha;
-		this.hora = hora;
-		this.foto=foto;
-		this.estado = estado;
-		this.usuarioServicio = usuarioServicio;
-	}
 
 	public Long getId() {
 		return id;
@@ -64,6 +53,14 @@ public class Pago {
 	
 	public void setId(Long id) {
 		this.id = id;
+	}
+	
+	public Long getIdUS() {
+		return idUS;
+	}
+	
+	public void setIdUS(Long idUS) {
+		this.idUS = idUS;
 	}
 	
 	public Date getFecha() {
