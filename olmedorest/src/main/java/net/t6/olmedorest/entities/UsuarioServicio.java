@@ -33,44 +33,45 @@ public class UsuarioServicio{
 	@Column(name="detalle_promocion")
 	private String detallePromocion;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="id_usuario", nullable=false)
-	private Usuario usuario;
+	@Column(name="id_usuario")
+	private Long idU;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="id_servicio", nullable=false)
-	private Servicio servicio;
+	@Column(name="id_servicio")
+	private Long idS;
 	
-	@OneToMany(mappedBy="usuarioServicio", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-	private Set<Pago> pagos;
+	@Column(name="estado_servicio")
+	private String estadoS;
 	
-	public UsuarioServicio() {}
-	
-	public UsuarioServicio(Date fecha, UUID archivoSolicitud, String nombrePromocion, String detallePromocion,
-			Usuario usuario, Servicio servicio) {
-		super();
-		this.fecha = fecha;
-		this.archivoSolicitud = archivoSolicitud;
-		this.nombrePromocion = nombrePromocion;
-		this.detallePromocion = detallePromocion;
-		this.usuario = usuario;
-		this.servicio = servicio;
-	}
-
-	public Set<Pago> getPagos() {
-		return pagos;
-	}
-
-	public void setPagos(Set<Pago> pagos) {
-		this.pagos = pagos;
-	}
-
 	public Long getId() {
 		return id;
 	}
 	
 	public void setId(Long id) {
 		this.id = id;
+	}
+	
+	public Long getIdU() {
+		return idU;
+	}
+	
+	public void setIdU(Long idU) {
+		this.idU = idU;
+	}
+	
+	public Long getIdS() {
+		return idS;
+	}
+	
+	public void setIdS(Long idS) {
+		this.idS = idS;
+	}
+	
+	public String getEstadoS() {
+		return estadoS;
+	}
+	
+	public void setEstadoS(String estadoS) {
+		this.estadoS = estadoS;
 	}
 	
 	public Date getFecha() {

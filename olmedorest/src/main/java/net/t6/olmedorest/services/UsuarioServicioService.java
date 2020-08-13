@@ -41,30 +41,14 @@ public class UsuarioServicioService {
 	}
 
 	public UsuarioServicio createUsuarioServicio(UsuarioServicio usuarioServicio){
-		repo.save(usuarioServicio);
-		
-		Iterator<Pago> itr = usuarioServicio.getPagos().iterator(); 
-		while(itr.hasNext()){ 
-			Pago p = (Pago)itr.next();
-			repop.save(new Pago(p.getFecha(),p.getHora(),p.getFoto(),p.getEstado(),usuarioServicio));
-		}	
-		
-		return usuarioServicio;
+		return repo.save(usuarioServicio);
 	}
 
 	public UsuarioServicio updateUsuarioServicio(UsuarioServicio usuarioServicio) throws RecordNotFoundException {
 		Optional<UsuarioServicio> usuarioServicioTemp = repo.findById(usuarioServicio.getId());
 	
 		if(usuarioServicioTemp.isPresent()){
-			repo.save(usuarioServicio);
-			
-			Iterator<Pago> itr = usuarioServicio.getPagos().iterator(); 
-			while(itr.hasNext()){ 
-				Pago p = (Pago)itr.next();
-				repop.save(new Pago(p.getFecha(),p.getHora(),p.getFoto(),p.getEstado(),usuarioServicio));
-			}	
-			
-			return usuarioServicio;
+			return repo.save(usuarioServicio);
 			
 		} else {
 			throw new RecordNotFoundException("Record does not exist for the given Id");
