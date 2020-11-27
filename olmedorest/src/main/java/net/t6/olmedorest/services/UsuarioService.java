@@ -1,27 +1,24 @@
 
 package net.t6.olmedorest.services;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import net.t6.olmedorest.entities.Usuario;
+import net.t6.olmedorest.entities.login;
+import net.t6.olmedorest.exceptions.RecordNotFoundException;
 import net.t6.olmedorest.repositories.NotificacionRepository;
 import net.t6.olmedorest.repositories.ServicioRepository;
 import net.t6.olmedorest.repositories.UsuarioRepository;
 import net.t6.olmedorest.repositories.UsuarioServicioRepository;
 import net.t6.olmedorest.repositories.loginRepository;
-import net.t6.olmedorest.entities.Notificacion;
-import net.t6.olmedorest.entities.Servicio;
-import net.t6.olmedorest.entities.Usuario;
-import net.t6.olmedorest.entities.UsuarioServicio;
-import net.t6.olmedorest.entities.login;
-import net.t6.olmedorest.exceptions.RecordNotFoundException;
-
-import org.springframework.stereotype.Service;
-import org.springframework.beans.factory.annotation.Autowired;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Optional;
 
 @Service
-public class UsuarioService {
+public class UsuarioService { 
 	
 	@Autowired
 	NotificacionRepository repon;
@@ -75,14 +72,14 @@ public class UsuarioService {
 		}
 	}
 	
-	public List<login> findByCorreoContaining(String correo){
-		List<login> usuarioList = repou1.findByCorreoContaining(correo);
+	/*public List<login> findByCorreoContaining(String correo){
+		List<login> usuarioList = repou1.findByCorreo(correo);
 		if(usuarioList.size() > 0) {
 			return usuarioList;
 		} else {
 			return new ArrayList<login>();
 		}
-	}
+	}*/
 	
 	public Usuario createUsuario(Usuario usuario){
 		
@@ -136,7 +133,7 @@ public class UsuarioService {
 		} else {
 			throw new RecordNotFoundException("Record does not exist for the given Id");
 		}
-	}		
+	}		 
 	
 	public boolean existePorNombreUsuario(String nombreUsuario){
         return repo.existsByNombreUsuario(nombreUsuario);       

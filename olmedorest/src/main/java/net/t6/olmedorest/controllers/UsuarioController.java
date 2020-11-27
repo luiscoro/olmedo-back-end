@@ -59,17 +59,17 @@ public class UsuarioController {
 		return new ResponseEntity<List<Usuario>>(list, new HttpHeaders(), HttpStatus.OK);
 	}				
 	
-	@GetMapping("/usuario/findByEmail/{correo}")
+	/*@GetMapping("/usuario/findByEmail/{correo}")
 	public ResponseEntity<List<login>> getEmailContra(@PathVariable("correo") String correo){
 		List<login> list = service.findByCorreoContaining(correo);
 		return new ResponseEntity<List<login>>(list, new HttpHeaders(), HttpStatus.OK);	
-	}			
+	}			*/
 
 	
 	@PostMapping("/usuario")
 	public ResponseEntity<Usuario> createUsuario(@RequestParam("usuario") String s)throws JsonMappingException, JsonProcessingException{
 		ObjectMapper om = new ObjectMapper();
-		Usuario usuario=om.readValue(s, Usuario[].class)[0];		
+		Usuario usuario=om.readValue(s, Usuario[].class)[0]; 		
 		
 		if(service.existePorNombreUsuario(usuario.getNombre()))
 			return new ResponseEntity<Usuario>(usuario, new HttpHeaders(),HttpStatus.CONFLICT);
@@ -77,7 +77,7 @@ public class UsuarioController {
 			return new ResponseEntity<Usuario>(usuario, new HttpHeaders(),HttpStatus.CONFLICT);
 		service.createUsuario(usuario);
 		return new ResponseEntity<Usuario>(usuario, new HttpHeaders(), HttpStatus.OK);
-	}
+	} 
 
 	@PutMapping("/usuario")
 	public ResponseEntity<Usuario> updateUsuario(@RequestParam("usuario") String s) throws RecordNotFoundException, JsonMappingException, JsonProcessingException{

@@ -23,12 +23,6 @@ public class Usuario {
 	@Column(name="contrasenia_usuario")
 	private String contrasenia;
 	
-	//@Column(name="habilitado")
-	//private Byte habilitado;
-	
-	//@Column(name="nombre_completo")
-	//private String nombreCompleto;
-	
 	@Column(name="sexo_usuario")
 	private String sexo;
 	
@@ -57,6 +51,23 @@ public class Usuario {
 	@Column(name="id_rol", nullable=false)
 	private int idRol;
 	
+	public Usuario(String nombreUsuario, String sexo,  
+			String telefono, String direccion, 
+			 int localidad, String contrasenia, String correo,
+			int idRol) {
+		this.nombreUsuario = nombreUsuario;
+		this.sexo = sexo;
+		//this.fechaNacimiento = fechaNacimiento;
+		this.telefono = telefono;
+		this.direccion = direccion;
+		//this.fechaCreacion = fechaCreacion;
+		this.localidad = localidad;
+		this.contrasenia = contrasenia;
+		this.correo = correo;
+		//this.puntajeBeneficio = puntajeBeneficio;
+		this.idRol = idRol;
+	}
+
 	/*@OneToMany(mappedBy="usuario", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private Set<Notificacion> notificaciones;
 	

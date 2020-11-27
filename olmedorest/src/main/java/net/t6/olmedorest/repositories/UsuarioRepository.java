@@ -19,6 +19,8 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 	
 	boolean existsByCorreo(String correo);
 	
+	public Usuario findByCorreo(String correo);
+	
 	//boolean existsByNombreCompleto(String nombreCompleto);
 	
 	@Transactional
@@ -29,3 +31,4 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 	List<Usuario> findByCorreoContaining(String correo);
 	
 }
+

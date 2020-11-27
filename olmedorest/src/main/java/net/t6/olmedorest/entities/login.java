@@ -13,7 +13,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
-@Table(name = "`usuario`")
+@Table(name = "usuario")
 public class login {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,6 +31,13 @@ public class login {
 	
 	@Column(name="id_rol")
 	private int idRol;
+	
+	public login(String contrasenia, String correo, int point, int idRol) {
+		this.contrasenia = contrasenia;
+		this.correo = correo;
+		this.point = point;
+		this.idRol = idRol;
+	}
 	
 	public Long getId() {
 		return id;
