@@ -32,8 +32,8 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 @CrossOrigin(origins = "*")
 @RequestMapping("/api")
 public class UsuarioController {
-	@Autowired
-	UsuarioService service;
+	@Autowired 
+	UsuarioService service; 
 	
 	@GetMapping("/usuario")
 	public ResponseEntity<List<Usuario>> getAll() {
@@ -58,14 +58,7 @@ public class UsuarioController {
 		List<Usuario> list = service.findByNombreUsuarioContaining(nombreUsuario);
 		return new ResponseEntity<List<Usuario>>(list, new HttpHeaders(), HttpStatus.OK);
 	}				
-	
-	/*@GetMapping("/usuario/findByEmail/{correo}")
-	public ResponseEntity<List<login>> getEmailContra(@PathVariable("correo") String correo){
-		List<login> list = service.findByCorreoContaining(correo);
-		return new ResponseEntity<List<login>>(list, new HttpHeaders(), HttpStatus.OK);	
-	}			*/
-
-	
+	 
 	@PostMapping("/usuario")
 	public ResponseEntity<Usuario> createUsuario(@RequestParam("usuario") String s)throws JsonMappingException, JsonProcessingException{
 		ObjectMapper om = new ObjectMapper();
@@ -86,7 +79,7 @@ public class UsuarioController {
 		service.updateUsuario(usuario);
 		return new ResponseEntity<Usuario>(usuario, new HttpHeaders(), HttpStatus.OK);
 	}
-
+ 
 	@DeleteMapping("/usuario/{id}")
 	public HttpStatus deleteUsuarioById(@PathVariable("id") Long id) throws RecordNotFoundException {
 		service.deleteUsuarioById(id);

@@ -37,7 +37,7 @@ public class Usuario {
 	private String direccion;
 	
 	@Column(name="puntaje_beneficio")
-	private Long puntajeBeneficio;
+	private int puntajeBeneficio;
 	
 	@Basic
 	@CreationTimestamp
@@ -50,65 +50,6 @@ public class Usuario {
 	
 	@Column(name="id_rol", nullable=false)
 	private int idRol;
-	
-	public Usuario(String nombreUsuario, String sexo,  
-			String telefono, String direccion, 
-			 int localidad, String contrasenia, String correo,
-			int idRol) {
-		this.nombreUsuario = nombreUsuario;
-		this.sexo = sexo;
-		//this.fechaNacimiento = fechaNacimiento;
-		this.telefono = telefono;
-		this.direccion = direccion;
-		//this.fechaCreacion = fechaCreacion;
-		this.localidad = localidad;
-		this.contrasenia = contrasenia;
-		this.correo = correo;
-		//this.puntajeBeneficio = puntajeBeneficio;
-		this.idRol = idRol;
-	}
-
-	/*@OneToMany(mappedBy="usuario", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-    private Set<Notificacion> notificaciones;
-	
-	@OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-	private Set<UsuarioServicio> usuarioServicios;
-	
-	public Usuario() {}
-
-	public Usuario(String nombreUsuario, String correo, String contrasenia, Boolean habilitado, String nombreCompleto, String sexo,
-			Date fechaNacimiento, String telefono, String direccion, Long puntajeBeneficio, Date fechaCreacion,
-			Localidad localidad) {
-		super();
-		this.nombreUsuario = nombreUsuario;
-		this.correo = correo;
-		this.contrasenia = contrasenia;
-		this.habilitado=habilitado;
-		this.nombreCompleto = nombreCompleto;
-		this.sexo = sexo;
-		this.fechaNacimiento = fechaNacimiento;
-		this.telefono = telefono;
-		this.direccion = direccion;
-		this.puntajeBeneficio = puntajeBeneficio;
-		this.fechaCreacion = fechaCreacion;
-		this.localidad = localidad;
-	} */ /*
-
-	public Set<UsuarioServicio> getUsuarioServicios() {
-		return usuarioServicios;
-	}
-
-	public void setUsuarioServicios(Set<UsuarioServicio> usuarioServicios) {
-		this.usuarioServicios = usuarioServicios;
-	}
-
-	public Set<Notificacion> getNotificaciones() {
-		return notificaciones;
-	}
-
-	public void setNotificaciones(Set<Notificacion> notificaciones) {
-		this.notificaciones = notificaciones;
-	} */
 
 	public Long getId() {
 		return id;
@@ -141,22 +82,7 @@ public class Usuario {
 	public void setContrasenia(String contrasenia) {
 		this.contrasenia = contrasenia;
 	}
-	/*
-	public Byte isHabilitado() {
-		return habilitado;
-	}
-
-	public void setHabilitado(Byte habilitado) {
-		this.habilitado = habilitado;
-	}
- 
-	public String getNombreCompleto() {
-		return nombreCompleto;
-	}
 	
-	public void setNombreCompleto(String nombreCompleto) {
-		this.nombreCompleto = nombreCompleto;
-	} */
 	
 	public String getSexo() {
 		return sexo;
@@ -173,7 +99,7 @@ public class Usuario {
 	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
-	
+	 
 	public String getTelefono() {
 		return telefono;
 	}
@@ -190,11 +116,11 @@ public class Usuario {
 		this.direccion = direccion;
 	}
 	
-	public Long getPuntajeBeneficio() {
+	public int getPuntajeBeneficio() {
 		return puntajeBeneficio;
 	}
 	
-	public void setPuntajeBeneficio(Long puntajeBeneficio) {
+	public void setPuntajeBeneficio(int puntajeBeneficio) {
 		this.puntajeBeneficio = puntajeBeneficio;
 	}
 	

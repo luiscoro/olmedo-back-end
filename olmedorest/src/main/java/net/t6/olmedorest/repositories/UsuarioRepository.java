@@ -21,10 +21,13 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 	
 	public Usuario findByCorreo(String correo);
 	
-	//boolean existsByNombreCompleto(String nombreCompleto);
+	public Usuario findByCorreoAndContrasenia(String correo, String contrasenia);
 	
 	@Transactional
 	void deleteById(Long id);
+	
+	@Transactional
+	boolean deleteByCorreo(String correo);
 	
 	List<Usuario> findByNombreUsuarioContaining(String nombreUsuario);
 	

@@ -32,12 +32,12 @@ public class login {
 	@Column(name="id_rol")
 	private int idRol;
 	
-	public login(String contrasenia, String correo, int point, int idRol) {
-		this.contrasenia = contrasenia;
-		this.correo = correo;
-		this.point = point;
-		this.idRol = idRol;
-	}
+//	public login(String contrasenia, String correo, int point, int idRol) {
+//		this.contrasenia = contrasenia;
+//		this.correo = correo;
+//		this.point = point; 
+//		this.idRol = idRol;
+//	}
 	
 	public Long getId() {
 		return id;
